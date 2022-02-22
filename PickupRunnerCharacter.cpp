@@ -84,7 +84,7 @@ void APickupRunnerCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 
 void APickupRunnerCharacter::Destroyed()
 {
-	if (!HasReachedGoal())
+	if (!HasReachedGoal() && !UGameplayStatics::IsGamePaused(GetWorld()))
 	{
 		UGameplayStatics::OpenLevel(GetWorld(), FName(UGameplayStatics::GetCurrentLevelName(GetWorld())));
 	}
